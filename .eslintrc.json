@@ -1,0 +1,13 @@
+{
+    "extends": "standard",
+    "env": {"jest": true},
+    "parserOptions": {
+        "ecmaFeatures": {
+          "jsx": true
+        }
+      },
+      "plugins": [
+        "react"
+      ],
+      "parser": "babel-eslint"
+}
