@@ -35,12 +35,7 @@ class Counter extends React.Component {
 
   render () {
     return (
-      <div>
-        <button onClick={ this.decrementHandler }>DEC</button>
-        <span>{this.state.count}</span>
-        <button onClick={ this.incrementHandler }>INC</button>
-        <button onClick={ this.incrementHandler2 }>2xINC</button>
-      </div>
+      this.props.children
     )
   }
 }
