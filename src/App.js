@@ -10,8 +10,8 @@ class App extends React.Component {
           <h1>Counter</h1>
           <hr/>
           <Counter step={ 2 }>
-            { ( { counterProps } ) => 
-              <div>
+            { ( { counterProps, stepVal } ) => 
+              <div data-step-val={ stepVal } data-count-val={ counterProps.count }>
                 <button onClick={ counterProps.decrementHandler }>DEC</button>
                 <span>{ counterProps.count }</span>
                 <button onClick={ counterProps.incrementHandler }>INC</button>

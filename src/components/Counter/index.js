@@ -40,7 +40,8 @@ class Counter extends React.Component {
         decrementHandler: this.decrementHandler,
         incrementHandler: this.incrementHandler,
         incrementHandler2: this.incrementHandler2
-      }
+      },
+      stepVal: this.props.step
     });
   }
 }
