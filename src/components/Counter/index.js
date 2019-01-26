@@ -34,8 +34,13 @@ class Counter extends React.Component {
   }
 
   render () {
-    this.props.children();
-    return (<div>See console</div>);
+    const abc = {
+      count: this.state.count,
+      decrementHandler: this.decrementHandler,
+      incrementHandler: this.incrementHandler,
+      incrementHandler2: this.incrementHandler2
+    }
+    return this.props.children(abc);
   }
 }
 
