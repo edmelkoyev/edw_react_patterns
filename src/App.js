@@ -10,12 +10,12 @@ class App extends React.Component {
           <h1>Counter</h1>
           <hr/>
           <Counter step={ 2 }>
-            { cprops => 
+            { ( { count, decrementHandler, incrementHandler, incrementHandler2 } ) => 
               <div>
-                <button onClick={ cprops.decrementHandler }>DEC</button>
-                <span>{ cprops.count }</span>
-                <button onClick={ cprops.incrementHandler }>INC</button>
-                <button onClick={ cprops.incrementHandler2 } >2xINC</button>
+                <button onClick={ decrementHandler }>DEC</button>
+                <span>{ count }</span>
+                <button onClick={ incrementHandler }>INC</button>
+                <button onClick={ incrementHandler2 } >2xINC</button>
               </div>
             }
           </Counter>
