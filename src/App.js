@@ -1,5 +1,4 @@
 import React from 'react'
-import logo from './logo.svg'
 import './App.css'
 import Counter from './components/Counter'
 
@@ -8,9 +7,9 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <h1>Counter</h1>
           <hr/>
-          <Counter step={2} />
+          <Counter step={ 2 } />
         </header>
       </div>
     )
