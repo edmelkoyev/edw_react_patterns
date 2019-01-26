@@ -34,9 +34,8 @@ class Counter extends React.Component {
   }
 
   render () {
-    return (
-      this.props.children
-    )
+    this.props.children();
+    return (<div>See console</div>);
   }
 }
 

@@ -10,12 +10,7 @@ class App extends React.Component {
           <h1>Counter</h1>
           <hr/>
           <Counter step={ 2 }>
-            <div>
-              <button >DEC</button>
-              <span>111</span>
-              <button>INC</button>
-              <button>2xINC</button>
-            </div>
+            { () => console.log("hello children") }
           </Counter>
         </header>
       </div>
