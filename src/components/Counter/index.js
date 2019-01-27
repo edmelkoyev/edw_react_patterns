@@ -11,11 +11,10 @@ function increment (state, props) {
 
 class Counter extends React.Component {
   constructor (props) {
-    super()
+    super(props)
     this.state = { count: 0 }
     this.decrementHandler = this.decrementHandler.bind(this)
     this.incrementHandler = this.incrementHandler.bind(this)
-    this.incrementHandler2 = this.incrementHandler2.bind(this)
   }
 
   decrementHandler () {
@@ -27,19 +26,12 @@ class Counter extends React.Component {
     this.setState(increment)
   }
 
-  incrementHandler2 () {
-    console.log('incrementHandler2')
-    this.setState(increment)
-    this.setState(increment)
-  }
-
   render () {
     return (
       <div>
         <button onClick={ this.decrementHandler }>DEC</button>
         <span>{this.state.count}</span>
         <button onClick={ this.incrementHandler }>INC</button>
-        <button onClick={ this.incrementHandler2 }>2xINC</button>
       </div>
     )
   }
