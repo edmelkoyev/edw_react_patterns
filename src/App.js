@@ -11,7 +11,7 @@ class App extends React.Component {
           <hr/>
           <Counter step={ 1 }>
             { ({getCounterProps}) => {
-              const counterProps = getCounterProps();
+              const counterProps = getCounterProps({ countMultiplier: x => 2*x });
               return (
                 <div>
                   <button onClick={ counterProps.decrementHandler }>DEC</button>

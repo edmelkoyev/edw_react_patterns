@@ -28,8 +28,8 @@ class Counter extends React.Component {
 
   render () {
     return this.props.children({
-      getCounterProps: () => ({
-        count: this.state.count,
+      getCounterProps: ({countMultiplier}) => ({
+        count: countMultiplier(this.state.count),
         decrementHandler: this.decrementHandler,
         incrementHandler: this.incrementHandler
       })
