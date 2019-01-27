@@ -15,7 +15,6 @@ class Counter extends React.Component {
     this.state = { count: 0 }
     this.decrementHandler = this.decrementHandler.bind(this)
     this.incrementHandler = this.incrementHandler.bind(this)
-    this.incrementHandler2 = this.incrementHandler2.bind(this)
   }
 
   decrementHandler () {
@@ -27,19 +26,13 @@ class Counter extends React.Component {
     this.setState(increment)
   }
 
-  incrementHandler2 () {
-    console.log('incrementHandler2')
-    this.setState(increment)
-    this.setState(increment)
-  }
-
   render () {
     return this.props.children({
-      counterProps: {
+      getCounterProps: () => ({
         count: this.state.count,
         decrementHandler: this.decrementHandler,
         incrementHandler: this.incrementHandler
-      }
+      })
     });
   }
 }
