@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import Counter from './components/Counter'
+import CounterController from './components/CounterController'
 
 class App extends React.Component {
   render () {
@@ -8,8 +8,7 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <h1>Counter</h1>
-          <hr/>
-          <Counter step={ 2 } />
+          <CounterController />
         </header>
       </div>
     )

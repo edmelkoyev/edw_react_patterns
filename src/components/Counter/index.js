@@ -1,45 +1,46 @@
 import React from 'react'
 
-function decrement (state, props) {
-  return { count: state.count - props.step }
-}
-
-function increment (state, props) {
-  console.log('updater:increment state:', state, " props", props)
-  return { count: state.count + props.step }
-}
-
 class Counter extends React.Component {
   constructor (props) {
-    super()
-    this.state = { count: 0 }
+    super(props)
+    this.state = { count: this.props.count ? this.props.count : 0 }
     this.decrementHandler = this.decrementHandler.bind(this)
     this.incrementHandler = this.incrementHandler.bind(this)
-    this.incrementHandler2 = this.incrementHandler2.bind(this)
   }
 
-  decrementHandler () {
-    this.setState(decrement)
+  get count() {
+    return this.isControlled ? this.props.count : this.state.count;
   }
 
-  incrementHandler () {
-    console.log('incrementHandler')
-    this.setState(increment)
+  get step() {
+    return this.props.step ? this.props.step : 1;
   }
 
-  incrementHandler2 () {
-    console.log('incrementHandler2')
-    this.setState(increment)
-    this.setState(increment)
+  get isControlled() {
+    return this.props.count !== undefined && this.props.onChange !== undefined;
   }
+
+  change = direction => {
+    const value = direction * this.step;
+  
+    if (this.isControlled) {
+      this.props.onChange( { count: this.props.count + value });
+    } else {
+      this.setState(state => ({count: state.count + value}))
+    }
+  }
+
+  incrementHandler = () => this.change(1);
+
+  decrementHandler = () => this.change(-1)
+
 
   render () {
     return (
       <div>
         <button onClick={ this.decrementHandler }>DEC</button>
-        <span>{this.state.count}</span>
+        <span>{this.count}</span>
         <button onClick={ this.incrementHandler }>INC</button>
-        <button onClick={ this.incrementHandler2 }>2xINC</button>
       </div>
     )
   }
