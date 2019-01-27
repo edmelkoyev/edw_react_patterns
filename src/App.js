@@ -9,7 +9,15 @@ class App extends React.Component {
         <header className="App-header">
           <h1>Counter</h1>
           <hr/>
-          <Counter step={ 2 } />
+          <Counter step={ 1 }>
+            { ({counterProps}) => 
+              <div>
+                <button onClick={ counterProps.decrementHandler }>DEC</button>
+                <span>{counterProps.count}</span>
+                <button onClick={ counterProps.incrementHandler }>INC</button>
+              </div>
+            }
+          </Counter>
         </header>
       </div>
     )
