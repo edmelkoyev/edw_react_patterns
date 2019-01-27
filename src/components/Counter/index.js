@@ -1,4 +1,6 @@
 import React from 'react'
+import {ACTION_INCREMENT} from '../../entities/constants'
+
 
 function decrement (state, props) {
   return { count: state.count - props.step }
@@ -28,10 +30,13 @@ class Counter extends React.Component {
 
   render () {
     return this.props.children({
-      getCounterProps: ({countMultiplier}) => ({
+      getCounterProps: ({countMultiplier, sendAnalyticsHandler}) => ({
         count: countMultiplier(this.state.count),
         decrementHandler: this.decrementHandler,
-        incrementHandler: this.incrementHandler
+        incrementHandler: () => {
+          this.incrementHandler();
+          sendAnalyticsHandler(ACTION_INCREMENT);
+        }
       })
     });
   }
