@@ -1,7 +1,7 @@
 import React from 'react'
 
 function logProps(Component) {
-  return class LogProps extends React.Component {
+  class LogProps extends React.Component {
     componentWillReceiveProps(nextProps) {
       console.log('prevProps', this.props);
       console.log('nextProps', nextProps);
@@ -11,6 +11,11 @@ function logProps(Component) {
       return <Component {...this.props} />;
     }
   }
+
+  LogProps.displayName = `LogProps(${Component.displayName || Component.name || 'Component'})`;
+
+  return LogProps;
+
 }
 
 export default logProps;
