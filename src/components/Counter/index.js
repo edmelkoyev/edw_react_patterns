@@ -35,12 +35,22 @@ class Counter extends React.Component {
 
   render () {
     return this.props.children({
-      counterProps: { 
-        count: this.state.count,
-        decrementHandler: this.decrementHandler,
-        incrementHandler: this.incrementHandler,
-        incrementHandler2: this.incrementHandler2
-      },
+      getCounterProps: ({appendOnClick, map}) => ({ 
+          count: map(this.state.count),
+          decrementHandler: () => {
+            this.decrementHandler();
+            appendOnClick();
+          },
+          incrementHandler: () => {
+            this.incrementHandler();
+            appendOnClick();
+          } ,
+          incrementHandler2: () => {
+            this.incrementHandler2();
+            appendOnClick();
+          } 
+        }
+      ),
       stepVal: this.props.step
     });
   }
