@@ -1,5 +1,8 @@
 import React from 'react'
 
+import logProps from '../../hoc/log-props';
+
+
 function Counter({ count, decrementHandler, incrementHandler }) {
   return (
     <div>
@@ -10,4 +13,4 @@ function Counter({ count, decrementHandler, incrementHandler }) {
   )
 }
 
-export default Counter
+export default logProps(Counter)
